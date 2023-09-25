@@ -1,5 +1,4 @@
 #include<stdio.h>
-#include<conio.h>
 
 int main() {
     FILE *fd;
@@ -32,10 +31,11 @@ int main() {
         char cod_vei[8];
     } reg_id_t; 
 	
-	reg_id_t regs_id_list[4] = {{"33333333333", "CDE9874"},
-                  				{"11111111111", "ERT4561"},
-                  				{"77777777777", "TOP5487"},
-                  				{"44444444444", "ERT4561"}};
+	reg_id_t regs_id_list[5] = {{"11111111111", "ABC1234"},    // testar busca
+		                		{"22222222222", "ABC1234"},    // testar busca
+		                		{"33333333333", "CDE9874"},    // testar busca
+		                		{"44444444444", "ERT4561"},
+		                		{"11111111111", "ERT4561"}};
        
     fd = fopen("busca_p.bin", "w+b");
     fwrite(regs_id_list, sizeof(regs_id_list), 1, fd);

@@ -104,6 +104,7 @@ int main() {
                         j++;
                     }
                 }
+                // Não seria interessante atualizar o índice depois de finalizar a inserção?
                 break;
             case 2:
                 while (1) {
@@ -116,10 +117,11 @@ int main() {
                     if (i < 1 || i > 4) {
                         printf("Opção inválida!");
                     } else {
-                        resultado = fopen("resultado.bin", "r+b");
+                        resultado = fopen("resultado.bin", "r+b"); //Aqui não seria apenas "r"? Pois iremos apenas ler o arquivo, não faremos nenhuma alteração.
                         int offSet = buscaBinaria(resultado, dadosIndice, chavePrimaria[i-1], j);
                         fseek(resultado, offSet, SEEK_SET);
 
+                        // printf("%d\n", offSet);
                         int tamanhoRegistro;
                         char registroBuscado[130];
                         fread(&tamanhoRegistro, sizeof(int), 1, resultado);

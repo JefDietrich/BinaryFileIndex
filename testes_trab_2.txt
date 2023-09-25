@@ -1,0 +1,102 @@
+
+1) 11111111 ABC1234
+2) 22222222 ABC1234
+3) 33333333 CDE9874
+4) 44444444 ERT4561
+5) 11111111 ERT4556
+6) 11111111 UJG3574
+7) 77777777 TOP5487
+8) 88888888 IUY3214
+
+--------------------------------------------------------------------
+
+Os offset calculei na mão então pode estar com umas diferenças do certo...
+
+1) Teste padrão para ver se o índice funciona:      [ OK ]
+
+Deleta arquivo resultado e indice
+Inseri o 1, 2, 3, 4
+Busque o elemento 1, 2, 3, 4 e verifique se está encontrando
+Fecha o arquivo pelo menu
+
+Abrir o resultado e verificar se inseriu os 4 
+Abrir o indice: deve começar com "1" de sincrornizado e ter as informações nessa ordem:
+Chave: 11111111 ABC1234  offSet: 0      (  0)
+Chave: 22222222 ABC1234  offSet: 48     ( 47)
+Chave: 33333333 CDE9874  offSet: 96     ( 94)
+Chave: 44444444 ERT4561  offSet: 144    (141)
+
+2) Teste desordenado para ver se o índice funciona:     [ OK ]
+
+Deleta arquivo resultado e indice
+Inseri o 4, 2, 3, 1
+Busque o elemento 1, 2, 3, 4 e verifique se está encontrando
+Fecha o arquivo pelo menu
+
+Abrir o resultado e verificar se inseriu os 4
+Abrir o indice: deve começar com "1" de sincrornizado e ter as informações nessa ordem:
+Chave: 11111111 ABC1234  offSet: 144    (142)
+Chave: 22222222 ABC1234  offSet: 48     ( 48)
+Chave: 33333333 CDE9874  offSet: 96     ( 95)
+Chave: 44444444 ERT4561  offSet: 0      (  0)
+
+3) Teste com interrupção no terminal:       [ Deu ruim... ]
+
+Deleta arquivo resultado e indice
+Inseri o 1, 2, 3, 4
+Fecha o terminal inesperamente
+
+Abrir o indice: deve começar com "0" de sincrornizado e não ter informações 
+
+Rode o trabalho denovo
+Deve aparecer a frase "Indice desatualizado reconstruindo..."
+Feche o programa pelo sair do menu
+
+Abrir o indice: deve começar com "1" de sincrornizado e ter as informações nessa ordem:
+Chave: 11111111 ABC1234  offSet: 0
+Chave: 22222222 ABC1234  offSet: 48
+Chave: 33333333 CDE9874  offSet: 96
+Chave: 44444444 ERT4561  offSet: 144
+
+Até constroi algo, mas com algumas informacoes faltando.
+
+4) Teste deletando indice
+
+Deleta arquivo resultado e indice
+Inseri o 1, 2, 3, 4
+Fecha o terminal inesperamente
+E Delete somente o arquivo indice
+
+Rode o trabalho denovo
+Deve aparecer a frase "Criando novo indice"
+Feche o programa pelo sair do menu
+
+Abrir o indice: deve começar com "1" de sincrornizado e ter as informações nessa ordem:
+Chave: 11111111 ABC1234  offSet: 0
+Chave: 22222222 ABC1234  offSet: 48
+Chave: 33333333 CDE9874  offSet: 96
+Chave: 44444444 ERT4561  offSet: 144
+
+5) Testes abrindo um arquivo e indice existentes
+
+Deleta arquivo resultado e indice
+Inseri o 1, 2, 3, 4
+Fecha o arquivo pelo menu
+
+Rode o trabalho
+Insira o elemento 5     [ Deu ruim... ] segmentation fault (core dumped)
+Busque o elemento 1, 2, 3, 4 e 5 e verifique se está encontrando
+Fecha o arquivo pelo menu
+
+Abrir o resultado e verificar se inseriu os 5
+Abrir o indice: deve começar com "1" de sincrornizado e ter as informações nessa ordem:
+Chave: 11111111 ABC1234  offSet: 0
+Chave: 11111111 ERT4561  offSet: 191
+Chave: 22222222 ABC1234  offSet: 48
+Chave: 33333333 CDE9874  offSet: 96
+Chave: 44444444 ERT4561  offSet: 144
+
+
+
+
+
