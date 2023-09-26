@@ -40,7 +40,7 @@ Chave: 22222222 ABC1234  offSet: 48     ( 48)
 Chave: 33333333 CDE9874  offSet: 96     ( 95)
 Chave: 44444444 ERT4561  offSet: 0      (  0)
 
-3) Teste com interrupção no terminal:       [ Deu ruim... ]
+3) Teste com interrupção no terminal: [OK]
 
 Deleta arquivo resultado e indice
 Inseri o 1, 2, 3, 4
@@ -60,7 +60,7 @@ Chave: 44444444 ERT4561  offSet: 144
 
 Até constroi algo, mas com algumas informacoes faltando.
 
-4) Teste deletando indice
+4) Teste deletando indice [ OK ]
 
 Deleta arquivo resultado e indice
 Inseri o 1, 2, 3, 4
@@ -77,14 +77,14 @@ Chave: 22222222 ABC1234  offSet: 48
 Chave: 33333333 CDE9874  offSet: 96
 Chave: 44444444 ERT4561  offSet: 144
 
-5) Testes abrindo um arquivo e indice existentes
+5) Testes abrindo um arquivo e indice existentes [ OK ]
 
 Deleta arquivo resultado e indice
 Inseri o 1, 2, 3, 4
 Fecha o arquivo pelo menu
 
 Rode o trabalho
-Insira o elemento 5     [ Deu ruim... ] segmentation fault (core dumped)
+Insira o elemento 5
 Busque o elemento 1, 2, 3, 4 e 5 e verifique se está encontrando
 Fecha o arquivo pelo menu
 
